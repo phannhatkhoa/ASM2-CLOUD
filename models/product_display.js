@@ -4,12 +4,12 @@ var pg_conn=require("./pg_config");
 async function display_table(shop_id,role){
     
     if(shop_id==0){
-        var product_query='SELECT * FROM products'
+        var product_query='SELECT * FROM products ORDER BY id'
     }
     else{
         var product_query=
         {
-            text: 'SELECT * FROM products WHERE shop_id=$1',
+            text: 'SELECT * FROM products WHERE shop_id=$1 ORDER BY id',
             values: [shop_id]
         };
     }
@@ -47,8 +47,8 @@ async function display_table(shop_id,role){
         }
        if(role=="shop") table_string +=`
         <td style="display:flex">
-        <button name="btt" type="submit" value="delete">Delete</button>
-        <button name="btt" type="submit" value="update">Update</button>
+        <button name="button" type="submit" value="delete">Delete</button>
+        <button name="button" type="submit" value="update">Update</button>
         </td>`
 
         table_string += `</tr>

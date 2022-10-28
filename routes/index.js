@@ -43,6 +43,7 @@ router.post('/login', async function(req, res, next) {
   }
   else if (authenticated == true && role == "director"){ 
     ss.role=role;    
+    ss.user_id=username;
     let table_string= await display_table(0,ss.role);
     res.render('admin', { title: 'ADMIN PAGE', name: req.body.username,
                           box: select_box_string, 

@@ -25,14 +25,18 @@ router.get('/', async function(req, res, next) {
                         notice:"Please login first!" });
  }
 });
+router.get('/functions', async function(req, res, next) {
+  res.redirect('/login')
+
+});
 
 router.post('/functions', async function(req, res, next) {
   // res.send('respond with a resource');
   let product_id = req.body.id;
   ss=req.session
   console.log(product_id);
-  if(req.body.btt=="delete")deleteFunc(product_id)
-  else if(req.body.btt=="update")await updateProduct(req.body.id, req.body.name, req.body.price, req.body.quantity, req.body.shop_id, req.body.defid);
+  if(req.body.button=="delete")deleteFunc(product_id)
+  else if(req.body.button=="update")await updateProduct(req.body.id, req.body.name, req.body.price, req.body.quantity, req.body.shop_id, req.body.defid);
   let shop_id = req.body.shop_id
   let table_string = await display_table(shop_id,ss.role)
   
