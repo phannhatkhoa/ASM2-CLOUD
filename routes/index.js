@@ -18,14 +18,10 @@ router.post('/', function(req, res, next) {
                         notice: '' });
 });
 
-router.get('/logout', async function(req, res, next){
-  ss=req.session
-  if(ss.username)
-  {
-    req.session.destroy()
-    res.redirect('/login')
-  }
-  else res.redirect('/login')  ;
+router.get('/logout',(req, res)=>{
+  ss=req.session;
+  req.session.destroy();
+  res.redirect('/')
 })
 
 router.post('/login', async function(req, res, next) {

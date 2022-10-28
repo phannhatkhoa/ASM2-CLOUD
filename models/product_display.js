@@ -17,7 +17,7 @@ async function display_table(shop_id,role){
     if (role=="director") disable="disabled"
     var data= await pg_conn.query(product_query);
     var table_string=`
-    <h2 style="display:flex"> Product of shop ${shop_id} </h2>
+    <h2 style="text-align: center"> Product of shop ${shop_id} </h2>
         <table class="center" border="2">
         <tr>`
     let num_fields=data.fields.length;

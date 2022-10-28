@@ -33,12 +33,11 @@ router.post('/functions', async function(req, res, next) {
   console.log(product_id);
   if(req.body.btt=="delete")deleteFunc(product_id)
   else if(req.body.btt=="update")await updateProduct(req.body.id, req.body.name, req.body.price, req.body.quantity, req.body.shop_id, req.body.defid);
-  let username ='khoa';
   let shop_id = req.body.shop_id
   let table_string = await display_table(shop_id,ss.role)
   
   res.render('users', { title: 'USER PAGE', 
-              name: username, 
+              name: req.body.username, 
              table_string: table_string })
 });
 
@@ -53,7 +52,7 @@ router.post('/insert', async function(req, res, next) {
   let shop_id = req.body.shop_id;
 
   insertFunc(id, name, price, quantity, shop_id);
-  let username ='khoa'; 
+  // let username ='khoa'; 
   // let table_string = await display_table(shop_id)
   // res.render('users', { title: 'USER PAGE', 
   //             name: username, 
