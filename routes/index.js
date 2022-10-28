@@ -35,6 +35,7 @@ router.post('/login', async function(req, res, next) {
   var  select_box_string = await select_box();
   if (authenticated == true && role == "shop") {
     ss.user_id = username;
+    console.log(ss.user_id);
     ss.role=role; 
     console.log(ss.user_id)
     ss.shop_id = shop_id;

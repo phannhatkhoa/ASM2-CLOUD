@@ -1,9 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var display_table = require('../models/product_display');
+var select_box=require('../models/displaySelect_Box');
 var express = require('express');
 const session = require('express-session');
 var router = express.Router();
+
+router.post('/', function(req, res, next) {
+  res.render('login', { title: 'Login page',
+                        message: 'ATN Shop',
+                        notice: '' });
+});
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   ss= req.session
@@ -21,6 +28,5 @@ router.get('/', async function(req, res, next) {
                         notice:"Please login first!" });
  }
 });
-
 
 module.exports = router;

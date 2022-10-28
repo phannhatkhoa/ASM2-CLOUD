@@ -11,7 +11,7 @@ var ss;
 router.get('/', async function(req, res, next) {
   ss=req.session;
   console.log(ss);
-  if (ss.user_id){
+  if (ss.role=="shop"){
     let username= ss.user_id;
     let shop_id = ss.shop_id;
     let table_string = await display_table(shop_id,ss.role)
@@ -42,17 +42,14 @@ router.post('/functions', async function(req, res, next) {
 });
 
 router.post('/insert', async function(req, res, next) {
-  // res.send('respond with a resource');
+  ss=req.session
   let id = req.body.id;
-  // console.log(product_id);
-  
   let name =req.body.name;
   let price= req.body.price;
   let quantity = req.body.quantity;
   let shop_id = req.body.shop_id;
-
   insertFunc(id, name, price, quantity, shop_id);
-  // let username ='khoa'; 
+  // let username = 'khoa' 
   // let table_string = await display_table(shop_id)
   // res.render('users', { title: 'USER PAGE', 
   //             name: username, 
