@@ -54,7 +54,7 @@ async function display_table(shop_id,role){
         table_string += `</tr>
         </form>`
     }
-    // thêm dòng insert
+    //insert
     if (role=="shop")
     {
     table_string +=`<form action="/users/insert" method="post">
@@ -76,3 +76,4 @@ async function display_table(shop_id,role){
 }
 
 module.exports=display_table;
+

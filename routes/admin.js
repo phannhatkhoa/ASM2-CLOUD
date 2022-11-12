@@ -28,5 +28,14 @@ router.get('/', async function(req, res, next) {
                         notice:"Please login first!" });
  }
 });
-
+router.post('/select_shop', async function(req, res, next) {
+  ss=req.session
+  let shop_id= req.body.shop; 
+  var  select_box_string = await select_box();
+  let table_string= await display_table(shop_id,ss.role);
+  res.render('admin', {   title: 'ADMIN PAGE',
+                          name: "director",
+                          box: select_box_string, 
+                          table: table_string })
+});
 module.exports = router;

@@ -53,11 +53,6 @@ router.post('/insert', async function(req, res, next) {
   let quantity = req.body.quantity;
   let shop_id = req.body.shop_id;
   insertFunc(id, name, price, quantity, shop_id);
-  // let username = 'khoa' 
-  // let table_string = await display_table(shop_id)
-  // res.render('users', { title: 'USER PAGE', 
-  //             name: username, 
-  //            table_string: table_string })
   res.redirect('/users')
 });
 
